@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='../static/style/output.css')}}">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script> -->
+    {% block meta %}
+    {% endblock %}
+
+    {% endblock %}
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+    
+    {% block content %}{% endblock %}
+</body>
+</html>

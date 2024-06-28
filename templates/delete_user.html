@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>ユーザ削除</title>
+{% endblock %}
+
+{% block content %}
+<nav class="flex items-center justify-between flex-wrap bg-[#c099a0] p-4 border-double border-y-8 border-yellow-100">
+    <div class="flex items-end justify-end flex-grow w-full">
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('index')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">HOME</a>
+        </div>
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('login')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">LOGIN</a>
+        </div>
+    </div>
+</nav>
+
+<div class="flex items-center justify-center w-screen min-h-screen bg-wood">
+    <div class="p-4 w-96">
+        <h1 class="text-4xl font-semibold text-right text-yellow-100">ユーザ削除</h1>
+        <form action="{{url_for('delete_user')}}" method="post">
+            <div class="mt-4">
+                <label for="username" class="text-yellow-100">ユーザー名</label>
+                <input type="text" name="username" id="username" class="w-full p-2 border border-gray-400 text-slate-600">
+            </div>
+            <div class="mt-4">
+                <label for="email" class="text-yellow-100">メール</label>
+                <input type="email" name="email" id="email" class="w-full p-2 border border-gray-400 text-slate-600">
+            </div>
+            <div class="mt-4">
+                <label for="password" class="text-yellow-100">パスワード</label>
+                <input type="password" name="password" id="password" class="w-full p-2 border border-gray-400 text-slate-600">
+            </div>
+            <div class="mt-4">
+                <input type="submit" value="ユーザー削除" class="w-full p-2 mt-10 font-semibold text-yellow-100 bg-[#c099a0] border-yellow-100 rounded-full text-lg">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

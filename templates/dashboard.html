@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>ダッシュボード</title>
+{% endblock %}
+
+
+
+{% block content %}
+<nav class="fixed top-0 left-0 right-0 flex items-center justify-between h-12 p-4 bg-[#c099a0]">
+    <div class="w-1/2 text-xl font-semibold text-yellow-100"><a href="{{url_for('dashboard')}}">レシピ一覧</a></div>
+    <div class="flex items-end justify-end w-1/2">
+        <div>
+            <a href="{{url_for('delete_user')}}" class="px-4 py-2 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:bg-yellow-100 hover:text-[#c099a0] mr-5">DELETE</a>
+        </div>
+        <div>
+            <a href="{{url_for('signout')}}" class="px-4 py-2 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:bg-yellow-100 hover:text-[#c099a0]">LOGOUT</a>
+        </div>
+    </div>
+</nav>
+
+<main id="main" class="flex items-center justify-around w-screen h-screen z-1" style="background-image: url('../static/img/bg-dashboard.png'); background-size: cover;">
+    <div id="book" class="flex flex-row items-center w-4/5 h-full pt-5 shadow-xl">
+        <div id="sec1" class="w-full pt-12 rounded-l-lg h-7/8 bg-amber-100 shadow-inner-custom" style="background-image: url('../static/img/note-l.png'); background-size: cover;">
+            <ul id="list1"></ul>
+        </div>
+    
+        <div id="sec2" class="w-full pt-12 rounded-r-lg h-7/8 bg-amber-100" style="background-image: url('../static/img/note-r.png'); background-size: cover;">
+            <ul id="list2"></ul>
+        </div>
+    </div>
+</main>
+
+
+<!-- <button class="px-4 py-2 m-4 font-bold text-white bg-teal-500 rounded-full hover:bg-teal-700" id="request">
+    取得
+</button> -->
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+{% endblock %}
+

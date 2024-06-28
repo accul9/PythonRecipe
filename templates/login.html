@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>ログイン</title>
+{% endblock %}
+
+{% block content %}
+<nav class="flex items-center justify-between flex-wrap bg-[#c099a0] p-4 border-double border-y-8 border-yellow-100">
+    <div class="flex items-end justify-end flex-grow w-full">
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('index')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">HOME</a>
+        </div>
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('signup')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">新規登録</a>
+        </div>
+    </div>
+</nav>
+
+<div class="flex items-center justify-center w-screen min-h-screen bg-wood">
+    <div class="p-4 w-96">
+        <h1 class="mb-10 text-4xl font-semibold text-right text-yellow-100">ログイン</h1>
+        <form action="{{url_for('auth')}}" method="post"> 
+            <div class="mt-4">
+                <label for="email" class="font-semibold text-yellow-100">メール</label>
+                <input type="email" name="email" id="email" class="w-full p-2 border border-gray-400">
+            </div>
+            <div class="mt-4">
+                <label for="password" class="font-semibold text-yellow-100">パスワード</label>
+                <input type="password" name="password" id="password" class="w-full p-2 border border-gray-400">
+            </div>
+            <div class="mt-4">
+                <input type="submit" value="SUBMIT" class="w-full p-2 mt-10 font-semibold text-yellow-100 bg-[#c099a0] border-yellow-100 rounded-full text-lg">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

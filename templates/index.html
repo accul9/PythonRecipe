@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>Topページ</title>
+{% endblock %}
+
+
+{% block content %}
+<nav class="flex items-center justify-between flex-wrap bg-[#c099a0] p-4 border-double border-y-8 border-yellow-100">
+    <div class="flex items-end justify-end flex-grow w-full">
+        {% if login %}
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('signout')}}"class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">signout</a>
+        </div>
+        {% else %}
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('login')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">LOGIN</a>
+        </div>
+        {% endif %}
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('signup')}}" class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">NEW</a>
+        </div>
+        <div class="flex-shrink text-sm">
+            <a href="{{url_for('delete_user')}}"class="inline-block px-4 py-2 mt-0 mr-4 text-sm leading-none text-yellow-100 border border-yellow-100 rounded hover:border-transparent hover:text-[#522f60] hover:bg-yellow-100">DELETE</a>
+        </div>
+    </div>
+</nav>
+
+<main class="flex justify-center w-full h-screen bg-gray-700 bg-cover bg-wood">
+    <div id="book" class="w-1/3 h-4/5 bg-gradient-to-br from-[#522f60] to-[#432f2f] mx-auto mt-12 block rounded-r-lg shadow-xl">
+        <h1 id="booktitle" class="text-[#d3ccd6] text-6xl font-allura text-center mt-40">Mayonaka</h1>
+        <h1 class="text-[#d3ccd6] text-6xl font-allura text-center mt-5">Recipe</h1>
+    </div>
+    
+</main>
+{% endblock %}
